@@ -30,6 +30,7 @@ ARCH_FILES := \
   $(SRC)/Core/MIPS/x86/RegCache.cpp \
   $(SRC)/Core/MIPS/x86/RegCacheFPU.cpp \
   $(SRC)/GPU/Common/VertexDecoderX86.cpp \
+  $(SRC)/GPU/Software/DrawPixelX86.cpp \
   $(SRC)/GPU/Software/SamplerX86.cpp
 endif
 
@@ -52,6 +53,7 @@ ARCH_FILES := \
   $(SRC)/Core/MIPS/x86/RegCache.cpp \
   $(SRC)/Core/MIPS/x86/RegCacheFPU.cpp \
   $(SRC)/GPU/Common/VertexDecoderX86.cpp \
+  $(SRC)/GPU/Software/DrawPixelX86.cpp \
   $(SRC)/GPU/Software/SamplerX86.cpp
 endif
 
@@ -367,6 +369,7 @@ EXEC_AND_LIB_FILES := \
   $(SRC)/GPU/Software/Lighting.cpp \
   $(SRC)/GPU/Software/Rasterizer.cpp.arm \
   $(SRC)/GPU/Software/RasterizerRectangle.cpp.arm \
+  $(SRC)/GPU/Software/RasterizerRegCache.cpp \
   $(SRC)/GPU/Software/Sampler.cpp \
   $(SRC)/GPU/Software/SoftGpu.cpp \
   $(SRC)/GPU/Software/TransformUnit.cpp \
@@ -746,7 +749,7 @@ $(call import-module,glslang-build)
 $(call import-module,miniupnp-build)
 
 jni/$(SRC)/git-version.cpp:
-	-./git-version-gen.sh
-	-..\Windows\git-version-gen.cmd
+  -./git-version-gen.sh
+  -..\Windows\git-version-gen.cmd
 
 .PHONY: jni/$(SRC)/git-version.cpp
